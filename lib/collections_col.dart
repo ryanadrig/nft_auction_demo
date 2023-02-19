@@ -19,7 +19,7 @@ class _Collections_ColState extends State<Collections_Col> {
       built_collections_items.add(
          
         Padding(
-            padding:EdgeInsets.only(left:ss.width*.05),
+            padding:EdgeInsets.only(left:ss.width*.05, bottom: ss.width*.05),
           child:  ClipRRect(
               borderRadius: BorderRadius.circular(ss.width*.08),
               child: Container(

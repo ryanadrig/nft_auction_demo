@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
 Size ss = Size(0,0);
+Color primaryColor = Colors.green[900]!;
+Color snb_border_color = Colors.lightGreenAccent;
+Color snb_shadow_color = Colors.lightGreenAccent[700]!;
 
 
 List<Map> collections_data = [
   {"title": "New Collections",
-    "desc": "Check out the newest collections in our inventory here. Just click here and be amazed by all of our outstanding NFTs",
+    "desc": "Explore the newest collections in our inventory here. Just click here and be amazed by all of our outstanding NFTs",
     "img_path":"assets/images/nft_col_img1.png"
+  },
+  {"title": "Live Collections",
+    "desc": "Check out live collections that you can bid on now here. Just click here and be amazed by all of our outstanding NFTs",
+    "img_path":"assets/images/nft_asset4.png"
   }
 ];
 

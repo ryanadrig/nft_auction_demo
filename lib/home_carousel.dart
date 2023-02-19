@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:nft_auction/state/na_globals.dart';
 import 'package:nft_auction/utils.dart';
+import 'package:nft_auction/nft_detail_view.dart';
 import 'dart:ui';
 import 'dart:math'as math;
 
@@ -35,10 +36,12 @@ class CarouselItem extends StatelessWidget {
     overlay_text_bg_height = ss.height*.14;
     return Transform.rotate(
         angle: math.pi/2,
-        child:Container(
+        child:
+        Container(
             height: ss.height * .66,
             width: nft_card_width,
             child:
+
             Padding(
                 padding:EdgeInsets.symmetric(horizontal:nft_item_padding),
                 child:
@@ -126,7 +129,7 @@ class CarouselItem extends StatelessWidget {
                           ))
                       )),
                 ]
-                ))
-        ));
+                )
+        )));
   }
 }
