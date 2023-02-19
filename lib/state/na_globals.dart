@@ -5,7 +5,7 @@ Size ss = Size(0,0);
 
 List<Map> collections_data = [
   {"title": "New Collections",
-    "desc": "Check out the newest collections in our inventory here. Just click here",
+    "desc": "Check out the newest collections in our inventory here. Just click here and be amazed by all of our outstanding NFTs",
     "img_path":"assets/images/nft_col_img1.png"
   }
 ];

@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:nft_auction/state/na_globals.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:nft_auction/state/na_globals.dart';
+import 'package:nft_auction/utils.dart';
 import 'dart:ui';
 import 'dart:math'as math;
 
-// return endtime for counter from formatted string
-int ret_counter_endtime(String et_str){
-  int hours = int.parse(et_str.split(":")[0]);
-  int minutes = int.parse(et_str.split(":")[1]);
-  int seconds = int.parse(et_str.split(":")[2]);
-  int endtime = DateTime.now().millisecondsSinceEpoch + (1000 * seconds)
-      + (60000 * minutes) + (3600000 * hours);
-  return endtime;
-}
+
 
 class CarouselItem extends StatelessWidget {
   CarouselItem({Key? key, required this.item_idx}) : super(key: key);
