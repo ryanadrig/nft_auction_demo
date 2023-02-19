@@ -6,6 +6,7 @@ import 'package:nft_auction/utils.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter_expandable_text/flutter_expandable_text.dart';
 import 'dart:ui';
+import 'package:nft_auction/bid_view.dart';
 
 class NFT_Detail_View extends StatefulWidget {
    NFT_Detail_View({Key? key,
@@ -19,6 +20,7 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
   int nft_type_chosen_idx = 0;
   double nft_img_borderradius = 0;
   double overlay_cd_width = 0;
+  Color detail_bg_color = Colors.grey[300]!;
   @override
   Widget build(BuildContext context) {
     nft_img_borderradius = ss.width*.06;
@@ -27,34 +29,47 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
     SafeArea(child:Container(
       height: ss.height,
       width: ss.width,
-      color: Colors.white70,
       child:
           Column(children:[
               Container(
               height: ss.height * .88,
+                  color: detail_bg_color,
             child:ListView(children: [
       Container(
-      height: ss.height*.08,
+      height: ss.height*.1,
         width: ss.width,
         child:Stack(children:[
         Container(
-          height: ss.height*.08,
+          height: ss.height*.1,
           width: ss.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
             Padding(padding: EdgeInsets.all(ss.width*.02),
-            child: IconButton(
-              onPressed: (){Navigator.pop(context);},
-              color: Colors.white,
-              icon: Icon(Icons.arrow_back,
-               color: Colors.black,),),),
-              Padding(padding: EdgeInsets.all(ss.width*.02),
-                child: IconButton(
-                  onPressed: (){Navigator.pop(context);},
+            child:
+            GestureDetector(
+                onTap:(){
+                  Navigator.pop(context);
+                },
+                child:ClipRRect(
+                borderRadius: BorderRadius.circular(ss.width*.06),
+                child:Container(
+                  height:ss.width*.12,
+                  width:  ss.width*.12,
                   color: Colors.white,
-                  icon: Icon(Icons.more_vert ,
-                              color: Colors.black,),),)
+                  child:Center(child: Icon(Icons.arrow_back,
+               color: Colors.black,),)),))),
+              Padding(padding: EdgeInsets.all(ss.width*.03),
+                child:GestureDetector(
+                    onTap:(){},
+                    child:ClipRRect(
+                      borderRadius: BorderRadius.circular(ss.width*.06),
+                      child:Container(
+                          height:ss.width*.12,
+                          width:  ss.width*.12,
+                          color: Colors.white,
+                          child:Center(child: Icon(Icons.more_vert,
+                            color: Colors.black,),)),)),)
           ],),
         ),
 
@@ -144,7 +159,7 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
                     ))),
               ]
               ),
-
+              Container(height: ss.width*.02,),
 Row(children: [
   Container(width: ss.width*.02,),
   ClipRRect(
@@ -159,7 +174,7 @@ Row(children: [
   Container(width: ss.width*.02,),
   Container(
       height: ss.height*.09,
-      width: ss.width*.4,
+      width: ss.width*.35,
     child:Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,11 +186,26 @@ Row(children: [
 
   Container(
     height: ss.height*.09,
-      width: ss.width*.4,
+      width: ss.width*.5,
     child:Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [Icon(Icons.message_outlined), Text("Follow")],)
-  )
+      children: [
+    ClipRRect(
+    borderRadius: BorderRadius.circular(ss.width*.06),
+      child:Container(
+        height:ss.width*.12,
+        width:  ss.width*.12,
+        color: Colors.white,
+        child:Icon(Icons.message_outlined))),
+              Container(width:ss.width*.02),
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(ss.width*.06),
+                  child:Container(
+                    height:ss.width*.12,
+                    width:  ss.width*.32,
+                    color: Colors.white,
+                    child:Center(child:Text("Follow"))))])),
+
 
 ],),
 
@@ -299,34 +329,47 @@ Row(children: [
                   )),
 
               Container(height: ss.height*.02,),
-              ExpandableText(widget.nft["desc"],
+                  Padding(
+                    padding: EdgeInsets.all(ss.width*.01),child:ExpandableText(widget.nft["desc"],
                             readMoreText: "More",
                             readLessText: "Less",
                             linkTextStyle: TextStyle(color: primaryColor,
                             decoration: TextDecoration.underline),
-              ),
+              )),
                 Container(height: ss.height*.02,),  Container(height: ss.height*.02,),
 
 
       ],)),
 
-      Expanded(child:Row(children: [
-        Container(width: ss.width * .4,
+Expanded(child:Container(
+    color:detail_bg_color,
+    child:Row(children: [
+Padding(
+padding: EdgeInsets.all(ss.width*.01),child: Container(width: ss.width * .4,
           child:Row(children: [
             Icon(Icons.strikethrough_s_outlined),
             Text(widget.nft["current_bid"])
           ],)
-        ),
-        Container(
+        )),
+    Padding(
+      padding: EdgeInsets.all(ss.width*.01),
+      child:
+          GestureDetector(
+            onTap:(){
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+    return BidView();}));
+
+    },
+      child:Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(ss.width*.03),
               color: Colors.orange[600]
             ),
             height: ss.height*.12,
-            width: ss.width * .6,
-        child:Center(child:Text("Place Bid",style: TextStyle(color: Colors.white),)))
+            width: ss.width * .56,
+        child:Center(child:Text("Place Bid",style: TextStyle(color: Colors.white),)))))
 
-      ],))
+      ],)))
     ])
     )));
   }
