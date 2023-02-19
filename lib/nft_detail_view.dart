@@ -18,7 +18,10 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
       width: ss.width,
       color: Colors.white70,
       child:
-      Column(children: [
+          Column(children:[
+              Container(
+              height: ss.height * .88,
+            child:ListView(children: [
       Container(
       height: ss.height*.08,
         width: ss.width,
@@ -45,7 +48,7 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
         ),
 
     Container(
-    height: ss.height*.08,
+    height: ss.height*.1,
     width: ss.width,
     child: Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -54,8 +57,32 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
             style: TextStyle(fontSize: ss.width * .05,
                               fontWeight: FontWeight.w500),)
     ]))
-    ]))
-      ],),
+    ])),
+
+              
+
+
+
+      ],)),
+
+      Expanded(child:Row(children: [
+        Container(width: ss.width * .4,
+          child:Row(children: [
+            Icon(Icons.strikethrough_s_outlined),
+            Text(widget.nft["current_bid"])
+          ],)
+        ),
+        Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(ss.width*.03),
+              color: Colors.orange[600]
+            ),
+            height: ss.height*.12,
+            width: ss.width * .6,
+        child:Center(child:Text("Place Bid",style: TextStyle(color: Colors.white),)))
+
+      ],))
+    ])
     )));
   }
 }
