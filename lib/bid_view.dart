@@ -15,14 +15,29 @@ class BidView extends StatefulWidget {
 }
 
 class _BidViewState extends State<BidView> {
+
+  double bottom_drawer_height = 0;
+  double min_bottom_drawer_height = 0;
+  double max_bottom_drawer_height = 0;
+
+  @override
+  void initState() {
+    bottom_drawer_height = ss.height*.14;
+    min_bottom_drawer_height = ss.height*.13;
+    max_bottom_drawer_height = ss.height*.55;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+
+
     return SafeArea(child: Scaffold(
       body:Container(
         height: ss.height,
         width: ss.width,
         color: detail_bg_color,
-        child:Column(children: [
+        child:Stack(children:[Column(children: [
+
           Container(
               height: ss.height*.1,
               width: ss.width,
@@ -97,7 +112,7 @@ class _BidViewState extends State<BidView> {
             ],),
 
           Container(
-            height: ss.height*.74,
+            height: ss.height*.76,
             child:ListView.builder(itemBuilder: (context, iidx){
               return
                 Padding(
@@ -148,9 +163,40 @@ class _BidViewState extends State<BidView> {
                 ],)
               )));
             })
-          )
-        ],)
-      )
+          ),
+        ],),
+Positioned(bottom:0,
+          child:Container(color: Colors.blue,
+            // duration: Duration.zero,
+            height: bottom_drawer_height,
+            width: ss.width,
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                      onVerticalDragUpdate:(DragUpdateDetails dud){
+                        print("dud + " + dud.delta.dy.toString());
+                        if (bottom_drawer_height- dud.delta.dy >= min_bottom_drawer_height &&
+                            bottom_drawer_height- dud.delta.dy <= max_bottom_drawer_height) {
+                          setState(() {
+                            bottom_drawer_height =
+                                bottom_drawer_height - dud.delta.dy;
+                          });
+                        }
+                      } ,
+                child:Container(
+                  height: ss.width*.02,
+                  width: ss.width*.1,
+                  decoration: BoxDecoration(border:Border(bottom:
+                  BorderSide(width: ss.width*.01, color: Colors.black))),
+                ))
+              ],)
+            ],),
+          ))
+
+
+      ]))
     ));
   }
 }
