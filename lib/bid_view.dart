@@ -22,8 +22,8 @@ class _BidViewState extends State<BidView> {
 
   @override
   void initState() {
-    bottom_drawer_height = ss.height*.04;
-    min_bottom_drawer_height = ss.height*.04;
+    bottom_drawer_height = ss.height*.06;
+    min_bottom_drawer_height = ss.height*.06;
     max_bottom_drawer_height = ss.height*.55;
     super.initState();
   }
@@ -79,6 +79,7 @@ class _BidViewState extends State<BidView> {
                 Container(
                     height: ss.height*.1,
                     width: ss.width,
+                    padding: EdgeInsets.only(top: ss.width*.03),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children:[
@@ -167,7 +168,6 @@ class _BidViewState extends State<BidView> {
         ],),
 Positioned(bottom:0,
           child:Container(color: detail_bg_color,
-            // duration: Duration.zero,
             height: bottom_drawer_height,
             width: ss.width,
             child: ListView(children: [
@@ -185,49 +185,70 @@ Positioned(bottom:0,
                           });
                         }
                       } ,
-                child:Container(
-                  height: ss.width*.04,
+                child:
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(ss.width*.02) ,
+                    child:Container(
+                  height: ss.width*.05,
                   width: ss.width*.1,
                   decoration: BoxDecoration(border:Border(bottom:
-                  BorderSide(width: ss.width*.01, color: Colors.black))),
-                ))
+                  BorderSide(width: ss.width*.015, color: Colors.black))),
+                )))
               ],),
 
 
               Padding(padding: EdgeInsets.fromLTRB(ss.width*.02, ss.width*.04, ss.width*.02, ss.width*.04),
               child:
               ClipRRect(
-                borderRadius: BorderRadius.only(topLeft:Radius.circular(ss.width*.04),
-                    topRight:Radius.circular(ss.width*.04)),
-
+                // borderRadius: BorderRadius.only(topLeft:Radius.circular(ss.width*.04),
+                //     topRight:Radius.circular(ss.width*.04)),
+                  borderRadius: BorderRadius.circular(ss.width*.04),
               child:Container(
-                height: max_bottom_drawer_height  ,
-                  color: Colors.red,
-                  child:Column(children:[  ClipRRect(
+                height: max_bottom_drawer_height -ss.height*.1 ,
+                  color: Colors.white54,
+                  // color: Colors.blue,
+                  child:Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[  ClipRRect(
                   borderRadius: BorderRadius.only(topLeft:Radius.circular(ss.width*.04),
                       topRight:Radius.circular(ss.width*.04)),
               child:Container(
-                  height: ss.height * .15,
-                  color: Colors.white70,
+                  height: ss.height * .12,
+                      padding:EdgeInsets.only(top:ss.width*.06),
+
                   child:Row(children: [
-                    Icon(Icons.account_balance_outlined,
-                          size: ss.width*.09,),
-                    Column(children: [Text("Your Balance"),
-                                    Text("87 ETH")],)
+                    Padding(
+                        padding:EdgeInsets.only(left:ss.width*.04),
+                        child:Icon(Icons.account_balance_outlined,
+                          size: ss.width*.1,
+                      weight: 1000,
+                      grade:1000
+                    )),
+                  Padding(
+                    padding:EdgeInsets.only(left:ss.width*.04),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [Text("Your Balance",
+                          style:TextStyle(fontSize: ss.width*.035)),
+                                    Text("87 ETH",
+                                    style:TextStyle(fontSize: ss.width*.06))],))
                   ],)
 
               )),
                   Container(
-                      height: ss.height * .05,
-                      color: Colors.white70,
+                      height: ss.height * .04,
+                      padding:EdgeInsets.only(left:ss.width*.04),
                       child: Row(children:[Container(
-                color: Colors.white70,
                     child:Text("Your Bid"))])),
-                ClipRRect(
+                  Padding(
+                      padding:EdgeInsets.only(top:ss.width*.04),
+               child: ClipRRect(
                     borderRadius: BorderRadius.circular(ss.width*.04),
                     child:Container(
                         color: Colors.white,
-                        height: ss.height * .15,
+                        height: ss.height * .1,
+                        width: ss.width*.84,
+                        padding: EdgeInsets.fromLTRB(ss.width*.03, ss.width*.02, ss.width*.03, ss.width*.02),
                         child:Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -235,7 +256,7 @@ Positioned(bottom:0,
                             Text("Min 3.3 ETH")
                         ],)
 
-                    )),
+                    ))),
                   Padding(padding: EdgeInsets.fromLTRB(ss.width*.02, ss.width*.04, ss.width*.02, ss.width*.04),
                       child:
                 ClipRRect(
