@@ -101,7 +101,7 @@ class CarouselItem extends StatelessWidget {
                                 ),
                                   child:
                           BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 1.0),
+                              filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
                               child:
                               Container(
                                   height: overlay_text_bg_height,
