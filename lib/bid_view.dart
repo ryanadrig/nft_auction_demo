@@ -74,7 +74,8 @@ class _BidViewState extends State<BidView> {
                     ret_counter_endtime(
                     widget.nft["auction_end"]),
                     textStyle:TextStyle(
-                        fontSize: ss.width * .04,
+                        fontSize: ss.width * .05,
+                        fontWeight: FontWeight.w500,
                         color: Colors.black))])
 
                         ]))
@@ -83,10 +84,16 @@ class _BidViewState extends State<BidView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Bid History"),
+              Padding(
+                padding:EdgeInsets.only(left:ss.width*.04),
+                child:
+              Text("Bid History")),
+              Padding(
+                padding:EdgeInsets.only(right: ss.width*.04),
+                child:
               Text(months[DateTime.now().month] +" "+
                   DateTime.now().day.toString() +" " +
-                  DateTime.now().year.toString())
+                  DateTime.now().year.toString()))
             ],),
 
           Container(
@@ -106,7 +113,7 @@ class _BidViewState extends State<BidView> {
                 child:Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                  Container(width: ss.width*.3,
+                  Container(width: ss.width*.5,
                   child: Row(children: [
                   ClipRRect(
                   borderRadius: BorderRadius.circular(ss.width*.04),
@@ -118,17 +125,26 @@ class _BidViewState extends State<BidView> {
                           padding:EdgeInsets.only(left: ss.width*.02),
                           child:
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [Text(widget.bid_data[iidx]["bidder"]),
-                      Text(widget.bid_data[iidx]["time_ago"])],))
+                      children: [Container(
+                          width: ss.width*.3,
+                          child:Text(widget.bid_data[iidx]["bidder"],
+                      softWrap: false,
+                      overflow: TextOverflow.ellipsis,)),
+                      Text(widget.bid_data[iidx]["time_ago"] + " ago",
+                      style: TextStyle(fontSize: ss.width*.03,
+                      fontWeight: FontWeight.w300),),],))
                   ],)
                   ),
-                  Container(width: ss.width*.2,
+                        Padding(
+                          padding:EdgeInsets.only(right: ss.width*.02),
+                  child: Container(width: ss.width*.25,
                   child:Row(mainAxisAlignment: MainAxisAlignment.end,
                   children: [Text(widget.bid_data[iidx]["amount"]),
                     Text(widget.bid_data[iidx]["currency"])],
                   )
-                  )
+                  ))
                 ],)
               )));
             })
