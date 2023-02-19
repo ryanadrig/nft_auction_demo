@@ -3,6 +3,7 @@ import 'package:nft_auction/state/na_globals.dart';
 import 'package:nft_auction/collections_col.dart';
 import 'package:nft_auction/home_carousel.dart';
 import 'dart:math' as math;
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class NFT_Home extends StatefulWidget {
   const NFT_Home({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class _NFT_HomeState extends State<NFT_Home> {
   FixedExtentScrollController fixedExtentScrollController =
   FixedExtentScrollController();
 
+  int nft_type_chosen_idx = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +37,15 @@ class _NFT_HomeState extends State<NFT_Home> {
         child:
         ListView(children: [
           Container(height: ss.height*.1,
-          child: Row(
+            padding: EdgeInsets.only(left:ss.width*.02),
+            child: Row(
             children: [
               Container(
-                width: ss.width*.9,
-                child: Text("Explore the most popular NFTs"),
+                width: ss.width*.8,
+                child: Text("Explore our Network of popular NFTs",
+                style: TextStyle(fontSize: ss.width*.07,
+                                    fontWeight: FontWeight.w500)
+                  ,),
               ),
               Container(width: ss.width*.1,
                 child: Center(child: Icon(Icons.notifications_outlined),),
@@ -51,16 +57,103 @@ class _NFT_HomeState extends State<NFT_Home> {
           Container(
             width: ss.width,
             height: ss.width*.1,
+              padding: EdgeInsets.only(top:ss.width*.04, left:ss.width*.02),
           child:ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              Container(width: ss.width * .16,
-              child: Text("Live")),
-              Container(width: ss.width * .16,
-                  child: Text("New")),
-              Container(width: ss.width * .16,
-                  child: Text("Popular"))
+              GestureDetector(
+                onTap:(){
+                  setState(() {
+                    nft_type_chosen_idx = 0;
+                  });
+                },
+              child: Container(
+    width: ss.width * .18,
+    child: Padding(
+    padding: EdgeInsets.only(left:ss.width*.01),
+    child:AnimatedCrossFade(
+                  firstChild:const Text("Live",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600
+                    ),),
+                  secondChild: const Text("Live",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400
+                    ),),
+                  crossFadeState:
+                  nft_type_chosen_idx == 0 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  duration: Duration(milliseconds: 500)),))),
+       GestureDetector(
+           onTap:(){
+             setState(() {
+               nft_type_chosen_idx = 1;
+             });
+           },
+           child: Container(
+    width: ss.width * .18,
+    child: Padding(
+    padding: EdgeInsets.only(left:ss.width*.01),
+    child:AnimatedCrossFade(
+               firstChild:const Text("New",
+                 style: TextStyle(
+                     fontWeight: FontWeight.w600
+                 ),),
+               secondChild: const Text("New",
+                 style: TextStyle(
+                     fontWeight: FontWeight.w400
+                 ),),
+               crossFadeState:
+               nft_type_chosen_idx == 1 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+               duration: Duration(milliseconds: 500)),))),
+       GestureDetector(
+           onTap:(){
+             setState(() {
+               nft_type_chosen_idx = 2;
+             });
+           },
+           child:Container(
+               width: ss.width * .18,
+                  child: Padding(
+                      padding: EdgeInsets.only(left:ss.width*.01),
+                      child:
+                      AnimatedCrossFade(
+                          firstChild:const Text("Popular",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600
+                                ),),
+                          secondChild: const Text("Popular",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400
+                        ),),
+                          crossFadeState:
+                          nft_type_chosen_idx == 2 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                          duration: Duration(milliseconds: 500)),
+                  ),))
             ],
+          )),
+          Container(
+              padding:
+              nft_type_chosen_idx == 0?
+              EdgeInsets.only(left: ss.width*.065):
+              nft_type_chosen_idx == 1?
+              EdgeInsets.only(left: ss.width*.063):
+              EdgeInsets.only(left: ss.width*.085)
+              ,
+              child:
+          AnimatedSmoothIndicator(
+            activeIndex: nft_type_chosen_idx,
+            count:  4,
+            axisDirection: Axis.horizontal,
+            effect:  SlideEffect(
+                spacing:  ss.width*.17,
+                radius:  4.0,
+                dotWidth:  5.0,
+                dotHeight:  5.0,
+                paintStyle:  PaintingStyle.stroke,
+                strokeWidth:  1.5,
+                dotColor:  Colors.transparent,
+                activeDotColor:  Colors.black
+            ),
           )),
 
           // Padding(padding: EdgeInsets.symmetric(vertical: ss.width*.02),
