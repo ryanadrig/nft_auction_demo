@@ -4,6 +4,7 @@ Size ss = Size(0,0);
 Color primaryColor = Colors.green[900]!;
 Color snb_border_color = Colors.lightGreenAccent;
 Color snb_shadow_color = Colors.lightGreenAccent[700]!;
+Color detail_bg_color = Colors.grey[300]!;
 
 
 List<Map> collections_data = [
@@ -48,4 +49,92 @@ List<Map> home_nft_items = [
   }
 
 
+];
+
+List<Map> bd = [
+  {"bidder":"Jean-Ralphio Saperstein",
+    "time_ago": "8 hours",
+    "amount": "3.3",
+    "currency": "ETH"
+  },
+  {"bidder":"Chris Traeger",
+    "time_ago": "9 hours",
+    "amount": "3.1",
+    "currency": "ETH"
+  },
+  {"bidder":"Charlie Kelly",
+    "time_ago": "9 hours",
+    "amount": "5150",
+    "currency": "USD"
+  },
+  {"bidder":"Rob Mac",
+    "time_ago": "10 hours",
+    "amount": "2.9",
+    "currency": "ETH"
+  },
+  {"bidder":"Ellis Mary",
+    "time_ago": "10 hours",
+    "amount": "47.6",
+    "currency": "LTC"
+  },
+  {"bidder":"Deandra Reynolds",
+    "time_ago": "10 hours",
+    "amount": "4242",
+    "currency": "USD"
+  },
+  {"bidder":"Dennis Reynolds",
+    "time_ago": "10 hours",
+    "amount": "2.5",
+    "currency": "ETH"
+  },
+  {"bidder":"Frank Reynolds",
+    "time_ago": "11 hours",
+    "amount": ".1725",
+    "currency": "BTC"
+  },
+  {"bidder":"Matthew Rickety",
+    "time_ago": "12 hours",
+    "amount": ".1691",
+    "currency": "BTC"
+  },
+  {"bidder":"Leslie Knope",
+    "time_ago": "12 hours",
+    "amount": "4141",
+    "currency": "USD"
+  },
+  {"bidder":"Ann Perkins",
+    "time_ago": "13 hours",
+    "amount": "4000",
+    "currency": "USD"
+  },
+  {"bidder":"April Ludgate",
+    "time_ago": "13 hours",
+    "amount": "10000",
+    "currency": "XRP"
+  },
+  {"bidder":"Ron Swanson",
+    "time_ago": "13 hours",
+    "amount": "9999",
+    "currency": "XRP"
+  },
+  {"bidder":"Ben Wyatt",
+    "time_ago": "14 hours",
+    "amount": "8000",
+    "currency": "XRP"
+  },
+  {"bidder":"Andy Dwyer",
+    "time_ago": "15 hours",
+    "amount": "100",
+    "currency": "USD"
+  },
+  {"bidder":"Donna Meagle",
+    "time_ago": "16 hours",
+    "amount": "41",
+    "currency": "USD"
+  },
+  {"bidder":"Jerry Gergich",
+    "time_ago": "16 hours",
+    "amount": "40",
+    "currency": "USD"
+  }
 ];

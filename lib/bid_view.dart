@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nft_auction/state/na_globals.dart';
 
 class BidView extends StatefulWidget {
-  const BidView({Key? key}) : super(key: key);
+   BidView({Key? key, required this.bid_data}) : super(key: key);
+
+  List<Map> bid_data;
 
   @override
   _BidViewState createState() => _BidViewState();

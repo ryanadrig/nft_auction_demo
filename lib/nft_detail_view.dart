@@ -20,7 +20,7 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
   int nft_type_chosen_idx = 0;
   double nft_img_borderradius = 0;
   double overlay_cd_width = 0;
-  Color detail_bg_color = Colors.grey[300]!;
+
   @override
   Widget build(BuildContext context) {
     nft_img_borderradius = ss.width*.06;
@@ -357,7 +357,7 @@ padding: EdgeInsets.all(ss.width*.01),child: Container(width: ss.width * .4,
           GestureDetector(
             onTap:(){
     Navigator.of(context).push(MaterialPageRoute(builder: (context){
-    return BidView();}));
+    return BidView(bid_data: widget.nft["bid_data"]);}));
 
     },
       child:Container(
