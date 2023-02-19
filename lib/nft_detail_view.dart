@@ -92,15 +92,15 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
                     padding:EdgeInsets.symmetric(horizontal:ss.width*.02),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(nft_img_borderradius),
-                        child:Image.asset(widget.nft["img_path"],
+                        child:Image.asset("assets/images/user1_pp.png",
                           height: ss.height * .6,
                           width: ss.width*.96,
                           fit: BoxFit.fill,))),
-                Padding(
-                    padding:EdgeInsets.symmetric(horizontal:ss.width*.02),
-                child:Positioned(
+             Positioned(
                     top:0,
-                    child:
+                    child:   Padding(
+                        padding:EdgeInsets.symmetric(horizontal:ss.width*.02),
+                        child:
                     SizedBox(
                         height: ss.height * .08,
                         width: overlay_cd_width,

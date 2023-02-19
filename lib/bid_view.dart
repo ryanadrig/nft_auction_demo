@@ -97,6 +97,9 @@ class _BidViewState extends State<BidView> {
                         ]))
               ])),
 
+          Padding(
+            padding:EdgeInsets.only(bottom:ss.width*.02),
+            child:
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -110,11 +113,13 @@ class _BidViewState extends State<BidView> {
               Text(months[DateTime.now().month] +" "+
                   DateTime.now().day.toString() +" " +
                   DateTime.now().year.toString()))
-            ],),
+            ],)),
 
           Container(
             height: ss.height*.76,
-            child:ListView.builder(itemBuilder: (context, iidx){
+            child:ListView.builder(
+                itemCount: widget.bid_data.length,
+                itemBuilder: (context, iidx){
               return
                 Padding(
               padding:EdgeInsets.all(ss.width*.02),
@@ -133,7 +138,7 @@ class _BidViewState extends State<BidView> {
                   child: Row(children: [
                   ClipRRect(
                   borderRadius: BorderRadius.circular(ss.width*.04),
-                  child:Image.asset("assets/images/user1_pp.png",
+                  child:Image.asset("assets/images/" +widget.bid_data[iidx]["pp_path"],
                     height: ss.width*.12,
                     width: ss.width*.12,
                     fit: BoxFit.contain,),),
@@ -170,7 +175,8 @@ Positioned(bottom:0,
           child:Container(color: detail_bg_color,
             height: bottom_drawer_height,
             width: ss.width,
-            child: ListView(children: [
+            child:
+            ListView(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -196,7 +202,10 @@ Positioned(bottom:0,
                 )))
               ],),
 
-
+            AnimatedScale(
+                duration: Duration.zero,
+                scale: bottom_drawer_height/max_bottom_drawer_height,
+                child:
               Padding(padding: EdgeInsets.fromLTRB(ss.width*.02, ss.width*.04, ss.width*.02, ss.width*.04),
               child:
               ClipRRect(
@@ -269,9 +278,9 @@ Positioned(bottom:0,
 
             ])
               )),
-              )
+              ))
 
-            ],),
+            ]),
           ))
 
 

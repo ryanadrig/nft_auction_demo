@@ -78,6 +78,23 @@ flutter:
     - assets/images/nft_asset4.png
     - assets/images/nft_asset5.png
     - assets/images/user1_pp.png
+    - assets/images/nft_pp_ad.png
+    - assets/images/nft_pp_al.png
+    - assets/images/nft_pp_ap.png
+    - assets/images/nft_pp_bw.png
+    - assets/images/nft_pp_ck.png
+    - assets/images/nft_pp_ct.png
+    - assets/images/nft_pp_dm.png
+    - assets/images/nft_pp_dnr.png
+    - assets/images/nft_pp_dr.png
+    - assets/images/nft_pp_em.png
+    - assets/images/nft_pp_fr.png
+    - assets/images/nft_pp_jg.png
+    - assets/images/nft_pp_jr.png
+    - assets/images/nft_pp_lk.png
+    - assets/images/nft_pp_mr.png
+    - assets/images/nft_pp_rm.png
+    - assets/images/nft_pp_rs.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

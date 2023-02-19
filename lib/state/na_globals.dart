@@ -57,86 +57,103 @@ List<Map> home_nft_items = [
 
 List<Map> bd = [
   {"bidder":"Jean-Ralphio Saperstein",
+    "pp_path": "nft_pp_jr.png",
     "time_ago": "8 hours",
     "amount": "3.3",
     "currency": "ETH"
   },
   {"bidder":"Chris Traeger",
+    "pp_path": "nft_pp_ct.png",
     "time_ago": "9 hours",
     "amount": "3.1",
     "currency": "ETH"
   },
   {"bidder":"Charlie Kelly",
+    "pp_path": "nft_pp_ck.png",
     "time_ago": "9 hours",
     "amount": "5150",
     "currency": "USD"
   },
   {"bidder":"Rob Mac",
+    "pp_path": "nft_pp_rm.png",
     "time_ago": "10 hours",
     "amount": "2.9",
     "currency": "ETH"
   },
   {"bidder":"Ellis Mary",
+    "pp_path": "nft_pp_em.png",
     "time_ago": "10 hours",
     "amount": "47.6",
     "currency": "LTC"
   },
   {"bidder":"Deandra Reynolds",
+    "pp_path": "nft_pp_dr.png",
     "time_ago": "10 hours",
     "amount": "4242",
     "currency": "USD"
   },
   {"bidder":"Dennis Reynolds",
+    "pp_path": "nft_pp_dnr.png",
     "time_ago": "10 hours",
     "amount": "2.5",
     "currency": "ETH"
   },
   {"bidder":"Frank Reynolds",
+    "pp_path": "nft_pp_fr.png",
     "time_ago": "11 hours",
     "amount": ".1725",
     "currency": "BTC"
   },
   {"bidder":"Matthew Rickety",
+    "pp_path": "nft_pp_mr.png",
     "time_ago": "12 hours",
     "amount": ".1691",
     "currency": "BTC"
   },
   {"bidder":"Leslie Knope",
+    "pp_path": "nft_pp_lk.png",
     "time_ago": "12 hours",
     "amount": "4141",
     "currency": "USD"
   },
   {"bidder":"Ann Perkins",
+    "pp_path": "nft_pp_ap.png",
     "time_ago": "13 hours",
     "amount": "4000",
     "currency": "USD"
   },
   {"bidder":"April Ludgate",
+    "pp_path": "nft_pp_al.png",
     "time_ago": "13 hours",
     "amount": "10000",
     "currency": "XRP"
   },
   {"bidder":"Ron Swanson",
+    "pp_path": "nft_pp_rs.png",
     "time_ago": "13 hours",
     "amount": "9999",
     "currency": "XRP"
   },
   {"bidder":"Ben Wyatt",
+    "pp_path": "nft_pp_bw.png",
     "time_ago": "14 hours",
     "amount": "8000",
     "currency": "XRP"
   },
   {"bidder":"Andy Dwyer",
+    "pp_path": "nft_pp_ad.png",
     "time_ago": "15 hours",
     "amount": "100",
     "currency": "USD"
   },
   {"bidder":"Donna Meagle",
+    "pp_path": "nft_pp_dm.png",
     "time_ago": "16 hours",
     "amount": "41",
     "currency": "USD"
   },
   {"bidder":"Jerry Gergich",
+    "pp_path": "nft_pp_jg.png",
     "time_ago": "16 hours",
     "amount": "40",
     "currency": "USD"
