@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:nft_auction/state/na_globals.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:nft_auction/utils.dart';
@@ -139,9 +140,41 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
                             ))
                     ))),
               ]
-              )
+              ),
 
+Row(children: [
+  Container(width: ss.width*.02,),
+  ClipRRect(
+    borderRadius: BorderRadius.circular(
+      ss.width*.05
+    ),
+    child:Image.asset("assets/images/user1_pp.png",
+                      width:ss.width*.1,
+        height:ss.width*.1,
+      fit: BoxFit.contain,
+    )),
+  Container(width: ss.width*.02,),
+  Container(
+      height: ss.height*.09,
+      width: ss.width*.4,
+    child:Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+      Text("@" + widget.nft["artist"]),
+      Text(widget.nft["artist"])
+    ],)
+  ),
 
+  Container(
+    height: ss.height*.09,
+      width: ss.width*.4,
+    child:Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [Icon(Icons.message_outlined), Text("Follow")],)
+  )
+
+],)
 
 
       ],)),
