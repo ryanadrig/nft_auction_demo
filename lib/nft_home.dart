@@ -83,7 +83,8 @@ class _NFT_HomeState extends State<NFT_Home> {
                       ),
                       child:Text("Live",
                     style: TextStyle(
-                        fontWeight: FontWeight.w600
+                        fontWeight: FontWeight.w600,
+                        color: nft_type_chosen_idx == 0? primaryColor: Colors.black
                     ),)),
                   secondChild: const Text("Live",
                     style: TextStyle(
@@ -109,7 +110,8 @@ class _NFT_HomeState extends State<NFT_Home> {
                            color: snb_shadow_color))
                    ),child: Text("New",
                  style: TextStyle(
-                     fontWeight: FontWeight.w600
+                     fontWeight: FontWeight.w600,
+                     color: nft_type_chosen_idx == 1? primaryColor: Colors.black
                  ),)),
                secondChild: const Text("New",
                  style: TextStyle(
@@ -136,7 +138,8 @@ class _NFT_HomeState extends State<NFT_Home> {
                                       color: snb_shadow_color))
                               ),child:Text("Popular",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w600
+                                    fontWeight: FontWeight.w600,
+                                    color: nft_type_chosen_idx == 2? primaryColor: Colors.black
                                 ),)),
                           secondChild: const Text("Popular",
                         style: TextStyle(
@@ -178,7 +181,6 @@ class _NFT_HomeState extends State<NFT_Home> {
 
      GestureDetector(
        onTap:(){
-         print("tap tap");
          Navigator.of(context).push(createNFTDetailRoute(
              NFT_Detail_View(nft: home_nft_items[fixedExtentScrollController.selectedItem])));
        },

@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:nft_auction/state/na_globals.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:nft_auction/utils.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_expandable_text/flutter_expandable_text.dart';
 import 'dart:ui';
 
 class NFT_Detail_View extends StatefulWidget {
@@ -14,6 +16,7 @@ Map nft;
 }
 
 class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
+  int nft_type_chosen_idx = 0;
   double nft_img_borderradius = 0;
   double overlay_cd_width = 0;
   @override
@@ -174,7 +177,135 @@ Row(children: [
       children: [Icon(Icons.message_outlined), Text("Follow")],)
   )
 
-],)
+],),
+
+              Padding(
+                  padding: EdgeInsets.only(top:ss.width*.01),
+                  child:Container(
+                      width: ss.width,
+                      height: ss.width*.08,
+                      padding: EdgeInsets.only( left:ss.width*.02),
+                      child:ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          GestureDetector(
+                              onTap:(){
+                                setState(() {
+                                  nft_type_chosen_idx = 0;
+                                });
+                              },
+                              child: Container(
+                                  width: ss.width * .18,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left:ss.width*.01),
+                                    child:AnimatedCrossFade(
+                                        firstChild:Container(
+                                            decoration: BoxDecoration(
+                                                border: Border(bottom: BorderSide(width:1,color: snb_shadow_color))
+                                            ),
+                                            child:Text("About",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                color: nft_type_chosen_idx == 0? primaryColor: Colors.black
+                                              ),)),
+                                        secondChild: const Text("About",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400
+                                          ),),
+                                        crossFadeState:
+                                        nft_type_chosen_idx == 0 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                                        duration: Duration(milliseconds: 500)),))),
+                          GestureDetector(
+                              onTap:(){
+                                setState(() {
+                                  nft_type_chosen_idx = 1;
+                                });
+                              },
+                              child: Container(
+                                  width: ss.width * .18,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left:ss.width*.01),
+                                    child:AnimatedCrossFade(
+                                        firstChild:Container(
+                                            decoration: BoxDecoration(
+                                                border: Border(bottom: BorderSide(width:1,
+                                                    color: snb_shadow_color))
+                                            ),child: Text("History",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              color: nft_type_chosen_idx == 1? primaryColor: Colors.black
+                                          ),)),
+                                        secondChild: const Text("History",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400
+                                          ),),
+                                        crossFadeState:
+                                        nft_type_chosen_idx == 1 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                                        duration: Duration(milliseconds: 500)),))),
+                          GestureDetector(
+                              onTap:(){
+                                setState(() {
+                                  nft_type_chosen_idx = 2;
+                                });
+                              },
+                              child:Container(
+                                width: ss.width * .18,
+                                child: Padding(
+                                  padding: EdgeInsets.only(left:ss.width*.01),
+                                  child:
+                                  AnimatedCrossFade(
+                                      firstChild: Container(
+                                          decoration: BoxDecoration(
+                                              border: Border(bottom: BorderSide(width:1,
+                                                  color: snb_shadow_color))
+                                          ),child:Text("Owners",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            color: nft_type_chosen_idx == 2? primaryColor: Colors.black
+                                        ),)),
+                                      secondChild: const Text("Owners",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400
+                                        ),),
+                                      crossFadeState:
+                                      nft_type_chosen_idx == 2 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                                      duration: Duration(milliseconds: 500)),
+                                ),))
+                        ],
+                      ))),
+              Container(
+                  padding:
+                  nft_type_chosen_idx == 0?
+                  EdgeInsets.only(left: ss.width*.065):
+                  nft_type_chosen_idx == 1?
+                  EdgeInsets.only(left: ss.width*.063):
+                  EdgeInsets.only(left: ss.width*.085)
+                  ,
+                  child:
+                  AnimatedSmoothIndicator(
+                    activeIndex: nft_type_chosen_idx,
+                    count:  4,
+                    axisDirection: Axis.horizontal,
+                    effect:  SlideEffect(
+                        spacing:  ss.width*.17,
+                        radius:  4.0,
+                        dotWidth:  5.0,
+                        dotHeight:  5.0,
+                        paintStyle:  PaintingStyle.stroke,
+                        strokeWidth:  1.5,
+                        dotColor:  Colors.transparent,
+                        activeDotColor: snb_shadow_color
+                    ),
+                  )),
+
+              Container(height: ss.height*.02,),
+              ExpandableText(widget.nft["desc"],
+                            readMoreText: "More",
+                            readLessText: "Less",
+                            linkTextStyle: TextStyle(color: primaryColor,
+                            decoration: TextDecoration.underline),
+              ),
+                Container(height: ss.height*.02,),  Container(height: ss.height*.02,),
 
 
       ],)),
