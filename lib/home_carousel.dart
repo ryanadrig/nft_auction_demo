@@ -5,20 +5,41 @@ import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'dart:ui';
 import 'dart:math'as math;
 
+// return endtime for counter from formatted string
+int ret_counter_endtime(String et_str){
+  int hours = int.parse(et_str.split(":")[0]);
+  int minutes = int.parse(et_str.split(":")[1]);
+  int seconds = int.parse(et_str.split(":")[2]);
+  int endtime = DateTime.now().millisecondsSinceEpoch + (1000 * seconds)
+      + (60000 * minutes) + (3600000 * hours);
+  return endtime;
+}
 
 class CarouselItem extends StatelessWidget {
   CarouselItem({Key? key, required this.item_idx}) : super(key: key);
   double nft_card_width = 0.0;
   double nft_card_height = 0.0;
   double nft_item_padding = 0.0;
+  double nft_item_borderradius = 0.0;
+  double overlay_text_bg_height = 0.0;
+
+  TextStyle nft_overlay_text_title = TextStyle(color: Colors.white,
+                                                fontSize: 14,
+                                          fontWeight: FontWeight.w500);
+  TextStyle nft_overlay_text_sub = TextStyle(color: Colors.white,
+                                              fontSize: 10,
+                                          fontWeight: FontWeight.w400);
   int item_idx;
-  int endtime = DateTime.now().millisecondsSinceEpoch + 1000 * 30;
+
+
+
   @override
   Widget build(BuildContext context) {
     nft_card_width = ss.width * .88;
     nft_card_height = ss.height* .66;
     nft_item_padding = ss.width*.03;
-
+    nft_item_borderradius = ss.width * .08;
+    overlay_text_bg_height = ss.height*.14;
     return Transform.rotate(
         angle: math.pi/2,
         child:Container(
@@ -32,7 +53,7 @@ class CarouselItem extends StatelessWidget {
                   Padding(
                       padding:EdgeInsets.symmetric(horizontal:nft_item_padding),
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(ss.width*.08),
+                          borderRadius: BorderRadius.circular(nft_item_borderradius),
                           child:Image.asset("assets/images/nft_asset" + (item_idx + 1).toString()+".png",
                         height: ss.height * .6,
                         width: nft_card_width,
@@ -47,7 +68,11 @@ class CarouselItem extends StatelessWidget {
                             mainAxisAlignment:MainAxisAlignment.center,
                             children: [
                           ClipRRect(
-                            
+                            borderRadius: BorderRadius.only(bottomRight:
+                            Radius.elliptical( ss.width*.03, ss.width*.02),
+                              bottomLeft: Radius.elliptical( ss.width*.03, ss.width*.02),
+
+                            ),
                           child:
                               Container(
                                   color: Colors.white,
@@ -55,7 +80,9 @@ class CarouselItem extends StatelessWidget {
                                   SizedBox(
                                       width: ss.width*.2,
                                       child:
-                                      Row(children:[Text("Live"),
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children:[Text("Live"),
                                       Image.asset("assets/images/fire_emoji.png",
                                           width:ss.width*.06,
                                           height:ss.width*.06,
@@ -65,30 +92,43 @@ class CarouselItem extends StatelessWidget {
                   ),
                   Positioned(
                       bottom:0,
+                      left: nft_item_padding,
                       child:
+
                       SizedBox(
-                          width: nft_card_width,
-                          height: ss.height*.18,
+                          height: overlay_text_bg_height,
                           child:
                               ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(nft_item_borderradius),
+                                  bottomRight: Radius.circular(nft_item_borderradius)
+                                ),
                                   child:
                           BackdropFilter(
                               filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 1.0),
                               child:
                               Container(
-                                  height: ss.height*.18,
-                                  width: nft_card_width,
-                                  child:Row(children: [
+                                  height: overlay_text_bg_height,
+                                  width:  nft_card_width - (4 * nft_item_padding),
+                                  child:Row(
+                                    children: [
                                     Container(
                                         height: ss.height*.18,
                                         width:ss.width*.44,
-                                        child:Column(children: [
-                                          Text(home_nft_items[item_idx]["title"]),
-                                          Text(home_nft_items[item_idx]["artist"])
+                                        child:Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                          Text(home_nft_items[item_idx]["title"],
+                                          style: nft_overlay_text_title,),
+                                          Text(home_nft_items[item_idx]["artist"],
+                                          style: nft_overlay_text_sub,)
                                         ],)
                                     ),
                                     Container(width: ss.width*.22,
-                                        child: CountdownTimer(endTime:endtime))
+                                        child: CountdownTimer(endTime:
+                                          ret_counter_endtime(
+                                              home_nft_items[item_idx]["auction_end"]),
+                                        textStyle: nft_overlay_text_title,))
                                   ],))
                           ))
                       )),
