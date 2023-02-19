@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:nft_auction/state/na_globals.dart';
 import 'package:nft_auction/utils.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
@@ -89,18 +90,37 @@ class _BidViewState extends State<BidView> {
             ],),
 
           Container(
-            height: ss.height*.77,
+            height: ss.height*.74,
             child:ListView.builder(itemBuilder: (context, iidx){
-              return Container(
+              return
+                Padding(
+              padding:EdgeInsets.all(ss.width*.02),
+                child:
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(ss.width*.04),
+                    child:Container(
                 width: ss.width*.88,
+                height: ss.width*.16,
+                    padding:EdgeInsets.all(ss.width*.01),
+                color: Colors.white,
                 child:Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                   Container(width: ss.width*.3,
                   child: Row(children: [
-                    Image.asset("assets/images/user1_pp.png"),
-                    Column(children: [Text(widget.bid_data[iidx]["bidder"]),
-                      Text(widget.bid_data[iidx]["time_ago"])],)
+                  ClipRRect(
+                  borderRadius: BorderRadius.circular(ss.width*.04),
+                  child:Image.asset("assets/images/user1_pp.png",
+                    height: ss.width*.12,
+                    width: ss.width*.12,
+                    fit: BoxFit.contain,),),
+                        Padding(
+                          padding:EdgeInsets.only(left: ss.width*.02),
+                          child:
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [Text(widget.bid_data[iidx]["bidder"]),
+                      Text(widget.bid_data[iidx]["time_ago"])],))
                   ],)
                   ),
                   Container(width: ss.width*.2,
@@ -110,7 +130,7 @@ class _BidViewState extends State<BidView> {
                   )
                   )
                 ],)
-              );
+              )));
             })
           )
         ],)

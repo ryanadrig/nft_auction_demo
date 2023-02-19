@@ -24,28 +24,32 @@ List<Map> home_nft_items = [
     "artist": "L1ght5p33D",
     "img_path":"assets/images/nft_asset1.png",
     "auction_end": "01:08:08",
-    "current_bid": "244.34"
+    "current_bid": "244.34",
+    "bid_data": bd
   },
   {"title": "Lit Astronaut",
     "desc": "Some say his lights harness the power of the sun itself. Want to own the lit astronaut? Bidding is open. Bid with multiple crypto currencies or a variety of payment options.",
     "artist": "L1ght5p33D",
     "img_path":"assets/images/nft_asset2.png",
     "auction_end": "07:07:07",
-    "current_bid": "444.56"
+    "current_bid": "444.56",
+    "bid_data": bd
   },
   {"title": "Retro Spacemen",
     "desc": "They're from a time with better music and no physics. Want to own the retro spacemen? Bidding is open. Bid with multiple crypto currencies or a variety of payment options.",
     "artist": "L1ght5p33D",
     "img_path":"assets/images/nft_asset3.png",
     "auction_end": "12:13:14",
-    "current_bid": "44.5"
+    "current_bid": "44.5",
+    "bid_data": bd
   },
   {"title": "Abstractonaut",
     "desc": "He's warped into another dimension, and can't seem to get back. Want to own the abstractonaut? Bidding is open. Bid with multiple crypto currencies or a variety of payment options.",
     "artist": "L1ght5p33D",
     "img_path":"assets/images/nft_asset4.png",
     "auction_end": "01:00:10",
-    "current_bid": "554.00"
+    "current_bid": "554.00",
+    "bid_data": bd
   }
 
 
