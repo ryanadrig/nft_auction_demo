@@ -29,6 +29,7 @@ class _NFT_Detail_ViewState extends State<NFT_Detail_View> {
     SafeArea(child:Container(
       height: ss.height,
       width: ss.width,
+      color: detail_bg_color,
       child:
           Column(children:[
               Container(
@@ -357,7 +358,7 @@ padding: EdgeInsets.all(ss.width*.01),child: Container(width: ss.width * .4,
           GestureDetector(
             onTap:(){
     Navigator.of(context).push(MaterialPageRoute(builder: (context){
-    return BidView(bid_data: widget.nft["bid_data"]);}));
+    return BidView(bid_data: widget.nft["bid_data"], nft:widget.nft);}));
 
     },
       child:Container(
