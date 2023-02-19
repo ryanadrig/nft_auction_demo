@@ -364,7 +364,7 @@ padding: EdgeInsets.all(ss.width*.01),child: Container(width: ss.width * .4,
       child:Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(ss.width*.03),
-              color: Colors.orange[600]
+              color: accent_button_color
             ),
             height: ss.height*.12,
             width: ss.width * .56,

@@ -22,8 +22,8 @@ class _BidViewState extends State<BidView> {
 
   @override
   void initState() {
-    bottom_drawer_height = ss.height*.14;
-    min_bottom_drawer_height = ss.height*.13;
+    bottom_drawer_height = ss.height*.04;
+    min_bottom_drawer_height = ss.height*.04;
     max_bottom_drawer_height = ss.height*.55;
     super.initState();
   }
@@ -166,11 +166,11 @@ class _BidViewState extends State<BidView> {
           ),
         ],),
 Positioned(bottom:0,
-          child:Container(color: Colors.blue,
+          child:Container(color: detail_bg_color,
             // duration: Duration.zero,
             height: bottom_drawer_height,
             width: ss.width,
-            child: Column(children: [
+            child: ListView(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -186,12 +186,70 @@ Positioned(bottom:0,
                         }
                       } ,
                 child:Container(
-                  height: ss.width*.02,
+                  height: ss.width*.04,
                   width: ss.width*.1,
                   decoration: BoxDecoration(border:Border(bottom:
                   BorderSide(width: ss.width*.01, color: Colors.black))),
                 ))
-              ],)
+              ],),
+
+
+              Padding(padding: EdgeInsets.fromLTRB(ss.width*.02, ss.width*.04, ss.width*.02, ss.width*.04),
+              child:
+              ClipRRect(
+                borderRadius: BorderRadius.only(topLeft:Radius.circular(ss.width*.04),
+                    topRight:Radius.circular(ss.width*.04)),
+
+              child:Container(
+                height: max_bottom_drawer_height  ,
+                  color: Colors.red,
+                  child:Column(children:[  ClipRRect(
+                  borderRadius: BorderRadius.only(topLeft:Radius.circular(ss.width*.04),
+                      topRight:Radius.circular(ss.width*.04)),
+              child:Container(
+                  height: ss.height * .15,
+                  color: Colors.white70,
+                  child:Row(children: [
+                    Icon(Icons.account_balance_outlined,
+                          size: ss.width*.09,),
+                    Column(children: [Text("Your Balance"),
+                                    Text("87 ETH")],)
+                  ],)
+
+              )),
+                  Container(
+                      height: ss.height * .05,
+                      color: Colors.white70,
+                      child: Row(children:[Container(
+                color: Colors.white70,
+                    child:Text("Your Bid"))])),
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(ss.width*.04),
+                    child:Container(
+                        color: Colors.white,
+                        height: ss.height * .15,
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                          Text("3.5 ETH"),
+                            Text("Min 3.3 ETH")
+                        ],)
+
+                    )),
+                  Padding(padding: EdgeInsets.fromLTRB(ss.width*.02, ss.width*.04, ss.width*.02, ss.width*.04),
+                      child:
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(ss.width*.04),
+                    child:Container(
+                      height: ss.height*.1,
+                        color: accent_button_color,
+                        child:Center(child:Text("Place Bid",
+                        style: TextStyle(color: Colors.white),)))))
+
+            ])
+              )),
+              )
+
             ],),
           ))
 

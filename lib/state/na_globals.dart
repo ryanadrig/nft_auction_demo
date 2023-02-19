@@ -5,7 +5,7 @@ Color primaryColor = Colors.green[900]!;
 Color snb_border_color = Colors.lightGreenAccent;
 Color snb_shadow_color = Colors.lightGreenAccent[700]!;
 Color detail_bg_color = Colors.grey[300]!;
-
+Color accent_button_color = Colors.orange[600]!;
 
 List<Map> collections_data = [
   {"title": "New Collections",
